@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Entity
 
 # A good bit of this code is from https://github.com/ColdCalzone/GWJ27/
 
