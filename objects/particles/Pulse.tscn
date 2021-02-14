@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/particles/Pulse.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+scale = Vector2( 4, 4 )
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+color_ramp = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
