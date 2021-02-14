@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://objects/attacks/Attack.gd"
+}, {
+"base": "Node",
+"class": "AttackParams",
+"language": "GDScript",
+"path": "res://parameters/attacks/AttackParams.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://objects/Entity.gd"
+}, {
+"base": "AttackParams",
+"class": "SwingAttackParams",
+"language": "GDScript",
+"path": "res://parameters/attacks/SwingAttackParams.gd"
+} ]
 _global_script_class_icons={
-
+"Attack": "",
+"AttackParams": "",
+"Entity": "",
+"SwingAttackParams": ""
 }
 
 [application]
@@ -19,6 +42,10 @@ config/name="GWJ 30"
 boot_splash/image="res://wallpaper.png"
 boot_splash/bg_color=Color( 0.0588235, 0.121569, 0.188235, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+CombatManager="*res://singletons/CombatManager.tscn"
 
 [display]
 
