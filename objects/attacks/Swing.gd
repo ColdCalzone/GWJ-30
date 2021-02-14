@@ -7,9 +7,9 @@ onready var attack_timer := $Timer
 
 
 
-func attack(paramaters : AttackParams) -> void:
-	position = paramaters.position
-	rotation_degrees = paramaters.rotation
+func attack(parameters : AttackParams) -> void:
+	position = parameters.position
+	rotation_degrees = parameters.rotation
 	
 	animated_sprite.play("default")
 	

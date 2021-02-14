@@ -8,7 +8,7 @@ var attacker : Entity
 
 
 # Virtuals
-func attack(paramaters : AttackParams) -> void: pass
+func attack(parameters : AttackParams) -> void: pass
 # EOF: Virtuals
 
 

@@ -18,18 +18,18 @@ const ATT_SWING := preload("res://objects/attacks/Swing.tscn")
 
 
 
-func attack(attacker : Entity, paramaters : AttackParams) -> void:
+func attack(attacker : Entity, parameters : AttackParams) -> void:
 	
 	var attack_packed : PackedScene
 	
-	match paramaters.type:
+	match parameters.type:
 		AttackParams.Types.SWING: attack_packed = ATT_SWING
 	
 	var attack_instance := attack_packed.instance()
 	add_child(attack_instance)
 	
 	attack_instance.attacker = attacker
-	attack_instance.attack(paramaters)
+	attack_instance.attack(parameters)
 
 
 #

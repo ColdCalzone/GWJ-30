@@ -6,7 +6,7 @@
 [node name="Testenv" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 527.404, 332.624 )
+position = Vector2( 531.409, 232.511 )
 scale = Vector2( 17.4814, 11.3945 )
 texture = ExtResource( 1 )
 
