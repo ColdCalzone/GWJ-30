@@ -32,7 +32,7 @@ func attack(attacker : Entity, paramaters : AttackParams) -> void:
 	attack_instance.attack(paramaters)
 
 
-
-func _input(event) -> void:
-	if event.is_action_pressed("ui_accept"):
-		attack(Entity.new(), SwingAttackParams.new(Vector2.ZERO, 0.06))
+#
+#func _input(event) -> void:
+#	if event.is_action_pressed("ui_accept"):
+#		attack(Entity.new(), SwingAttackParams.new(Vector2.ZERO, 0.06))
