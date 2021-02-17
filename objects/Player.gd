@@ -31,7 +31,12 @@ func _physics_process(delta : float):
 		dir += Vector2.LEFT
 	if Input.is_action_pressed("move_right"):
 		dir += Vector2.RIGHT
-	
+	if Input.is_action_pressed("music_test"):
+		AudioManager.play_music("placeholder")
+	if Input.is_action_pressed("ambience_test"):
+		AudioManager.play_ambience("bird_chirps", position - Vector2(500, 0))
+	if Input.is_action_pressed("sound_test"):
+		AudioManager.play_sfx("swish", position + Vector2(500, 0))
 	# Movement
 	if dir.length() != 0:
 		velocity.x = lerp(velocity.x, dir.x * speed, acceleration)
