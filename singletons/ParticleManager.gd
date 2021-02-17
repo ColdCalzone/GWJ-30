@@ -20,6 +20,6 @@ func spawn(parameters : ParticleParams) -> void:
 
 
 
-func _input(event) -> void:
-	if event.is_action_pressed("ui_accept"):
-		spawn(PulseParticleParams.new(Vector2.ZERO))
+#func _input(event) -> void:
+#	if event.is_action_pressed("ui_accept"):
+#		spawn(PulseParticleParams.new(Vector2.ZERO))
