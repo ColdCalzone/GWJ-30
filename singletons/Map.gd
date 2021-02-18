@@ -8,6 +8,7 @@ enum TileState {
 }
 
 onready var tile_map := $TileMap
+onready var warn_timer := $WarnTimer
 
 
 
@@ -48,3 +49,30 @@ func get_tile_coords(real_pos : Vector2) -> Vector2:
 
 func get_real_coords(tile_pos : Vector2) -> Vector2:
 	return tile_map.map_to_world(tile_pos)
+
+
+
+func game_set_tile(state : int, tile_pos : Vector2) -> void:
+	var warning := warn(tile_pos)
+	warn_timer.start()
+	yield(warn_timer, "timeout")
+	warning.queue_free()
+	set_tile_state(state, tile_pos)
+
+
+
+func warn(tile_pos : Vector2) -> WarningTile:
+	var warning_packed := load("res://objects/WarningTile.tscn")
+	var warning_instance : WarningTile = warning_packed.instance()
+	
+	warning_instance.position = tile_map.map_to_world(tile_pos) + Vector2(16, 16)
+	warning_instance.default_pos = tile_map.map_to_world(tile_pos) + Vector2(16, 16)
+	
+	add_child(warning_instance)
+	return warning_instance
+
+
+
+func _ready() -> void:
+	yield(get_tree().create_timer(3), "timeout")
+	game_set_tile(1, Vector2.ONE)
