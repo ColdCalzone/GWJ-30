@@ -17,6 +17,7 @@ const PATH_POINT_THREASHOLD := 4
 
 # Virtuals
 func die() -> void: pass
+func damaged() -> void: pass
 # EOF: Virtuals
 
 
@@ -49,7 +50,8 @@ func get_random_enemy() -> Entity:
 
 
 func damage(amount : int) -> void:
-	pass
+	health = clamp(health - amount, 0, max_health)
+	damaged()
 
 
 
