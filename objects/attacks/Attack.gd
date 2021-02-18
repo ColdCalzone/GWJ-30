@@ -4,6 +4,7 @@ class_name Attack
 
 
 var attacker : Entity
+var attacked : Array
 
 
 
@@ -15,3 +16,4 @@ func attack(parameters : AttackParams) -> void: pass
 
 func damage(victim : Entity) -> void:
 	victim.damage(attacker.attack_damage)
+	attacked.append(victim)
