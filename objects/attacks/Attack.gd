@@ -14,5 +14,4 @@ func attack(parameters : AttackParams) -> void: pass
 
 
 func damage(victim : Entity) -> void:
-	print("lol")
-#	victim.damage(attacker.attack_damage)
+	victim.damage(attacker.attack_damage)
