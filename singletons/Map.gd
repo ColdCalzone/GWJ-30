@@ -4,7 +4,8 @@ extends Navigation2D
 
 enum TileState {
 	Free,
-	Blocked
+	Blocked,
+	Barrier
 }
 
 onready var tile_map := $TileMap
@@ -31,8 +32,18 @@ func toggle_tile(tile_pos : Vector2) -> void:
 
 
 
+func update_barriers(tile_pos : Vector2) -> void:
+	var offsets : PoolVector2Array = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
+	
+	for offset in offsets:
+		if get_tile_state(tile_pos + offset) == -1:
+			tile_map.set_cellv(tile_pos + offset, TileState.Barrier)
+
+
+
 func set_tile_state(state : int, tile_pos : Vector2) -> void:
 	tile_map.set_cellv(tile_pos, state)
+	update_barriers(tile_pos)
 
 
 
@@ -74,6 +85,7 @@ func warn(tile_pos : Vector2) -> WarningTile:
 
 
 
-func _ready() -> void:
-	yield(get_tree().create_timer(3), "timeout")
-	game_set_tile(1, Vector2.ONE)
+func generate_map(width : int, height : int) -> void:
+	for x in width:
+		for y in height:
+			set_tile_state(TileState.Free, Vector2(x, y))
