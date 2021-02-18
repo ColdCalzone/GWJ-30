@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/enemies/Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Enemy1" type="KinematicBody2D" groups=[
+"enemy",
+]]
+script = ExtResource( 1 )
+target_player_distance = 8
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
