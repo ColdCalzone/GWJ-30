@@ -11,5 +11,3 @@ move_speed = 250
 
 [node name="Enemy1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 244.224, 233.736 )
-move_speed = 250
-target_player_distance = 64

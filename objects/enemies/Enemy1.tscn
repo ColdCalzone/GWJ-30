@@ -10,7 +10,8 @@ extents = Vector2( 32, 32 )
 "enemy",
 ]]
 script = ExtResource( 1 )
-target_player_distance = 8
+move_speed = 100
+target_player_distance = 80
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
