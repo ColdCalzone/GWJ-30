@@ -53,6 +53,7 @@ func get_real_coords(tile_pos : Vector2) -> Vector2:
 
 
 func game_set_tile(state : int, tile_pos : Vector2) -> void:
+	AudioManager.play_sfx("warning", tile_map.map_to_world(tile_pos))
 	var warning := warn(tile_pos)
 	warn_timer.start()
 	yield(warn_timer, "timeout")

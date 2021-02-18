@@ -11,9 +11,11 @@ extends Node2D
 onready var swish_sfx = $Swish
 onready var placeholder_music = $PlaceHolderMusic
 onready var bird_chirps_amb = $BirdChirps
+onready var warning = $Warning
 
 onready var sfx = {
-	"swish": swish_sfx
+	"swish": swish_sfx,
+	"warning": warning
 }
 
 onready var music = {
