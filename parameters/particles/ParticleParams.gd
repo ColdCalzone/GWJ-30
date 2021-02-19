@@ -3,6 +3,6 @@ class_name ParticleParams
 
 
 
-enum Types { PULSE }
+enum Types { PULSE, SPAWNER }
 
 var type : int

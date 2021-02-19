@@ -3,6 +3,7 @@ extends Node2D
 
 
 const PART_PULSE := preload("res://objects/particles/Pulse.tscn")
+const PART_SPAWNER := preload("res://objects/particles/Spawner.tscn")
 
 
 
@@ -12,6 +13,7 @@ func spawn(parameters : ParticleParams) -> void:
 	
 	match parameters.type:
 		ParticleParams.Types.PULSE: particles_packed = PART_PULSE
+		ParticleParams.Types.SPAWNER : particles_packed = PART_SPAWNER
 	
 	var particles_instance := particles_packed.instance()
 	add_child(particles_instance)
