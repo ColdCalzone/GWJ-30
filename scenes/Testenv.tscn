@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/enemies/Enemy1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Spawner.tscn" type="PackedScene" id=3]
 
 [node name="Testenv" type="Node2D"]
 
@@ -11,3 +12,10 @@ move_speed = 250
 
 [node name="Enemy1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 244.224, 233.736 )
+
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 385.814, 167.81 )
+max_spawns = 5
+time_min = 2.0
+time_max = 4.0
+entities = [ ExtResource( 1 ) ]
