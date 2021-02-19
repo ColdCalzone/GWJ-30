@@ -10,6 +10,7 @@ extends Node2D
 
 onready var swish_sfx = $Swish
 onready var placeholder_music = $PlaceHolderMusic
+onready var rocken_music = $RockenMusic
 onready var bird_chirps_amb = $BirdChirps
 onready var warning = $Warning
 
@@ -19,7 +20,8 @@ onready var sfx = {
 }
 
 onready var music = {
-	"placeholder": placeholder_music
+	"placeholder": placeholder_music,
+	"rocken": rocken_music
 }
 
 onready var ambience = {
