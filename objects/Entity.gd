@@ -83,8 +83,3 @@ func pathfinding() -> void:
 
 func move(direction : Vector2) -> void:
 	move_and_slide(direction.normalized() * move_speed)
-
-
-
-func _ready() -> void:
-	Map.generate_map(25, 25)
