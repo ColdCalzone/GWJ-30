@@ -53,6 +53,11 @@ _global_script_classes=[ {
 "class": "WarningTile",
 "language": "GDScript",
 "path": "res://objects/WarningTile.gd"
+}, {
+"base": "Sprite",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://objects/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
@@ -63,7 +68,8 @@ _global_script_class_icons={
 "PulseParticleParams": "",
 "SpawnerParticleParams": "",
 "SwingAttackParams": "",
-"WarningTile": ""
+"WarningTile": "",
+"Weapon": ""
 }
 
 [application]
@@ -80,6 +86,7 @@ ParticleManager="*res://singletons/ParticleManager.gd"
 AudioManager="*res://singletons/AudioManager.tscn"
 Map="*res://singletons/Map.tscn"
 Heartbeat="*res://singletons/Heartbeat.gd"
+WeaponManager="*res://singletons/WeaponManager.gd"
 
 [display]
 

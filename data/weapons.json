@@ -1,0 +1,36 @@
+{
+	"slap": {
+		"texture": "res://assets/weapons/slap.png",
+		"damage": 1,
+		"cooldown": 0.5,
+		"attack_type": 0
+	},
+	
+	"shortsword": {
+		"texture": "res://assets/weapons/shortsword.png",
+		"damage": 3,
+		"cooldown": 1.0,
+		"attack_type": 1
+	},
+	
+	"longsword": {
+		"texture": "res://assets/weapons/longsword.png",
+		"damage": 7,
+		"cooldown": 2.0,
+		"attack_type": 0
+	},
+	
+	"brass_knuckles": {
+		"texture": "res://assets/weapons/brass_knuckles.png",
+		"damage": 5,
+		"cooldown": 0.5,
+		"attack_type": 1
+	},
+	
+	"bow": {
+		"texture": "res://assets/weapons/bow.png",
+		"damage": 10,
+		"cooldown": 1.0,
+		"attack_type": 2
+	}
+}
