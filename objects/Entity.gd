@@ -13,6 +13,7 @@ var attack_damage : int
 var path : PoolVector2Array
 var target_point : Vector2
 var dead := false
+var weapon : Weapon = WeaponManager.get_weapon("slap")
 
 const PATH_POINT_THREASHOLD := 4
 

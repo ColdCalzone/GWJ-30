@@ -16,5 +16,13 @@ func attack(parameters : AttackParams) -> void: pass
 
 func damage(victim : Entity) -> void:
 	if attacker != null:
-		victim.damage(attacker.attack_damage)
+		var final_damage := attacker.attack_damage
+		var weapon := attacker.weapon
+		
+		if attacker.is_in_group("player") && Heartbeat.is_in_range():
+			final_damage += weapon.weapon_data.get("damage")
+		elif attacker.is_in_group("enemy"):
+			final_damage += weapon.weapon_data.get("damage")
+		
+		victim.damage(final_damage)
 		attacked.append(victim)
