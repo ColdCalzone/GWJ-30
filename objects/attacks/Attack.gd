@@ -15,5 +15,6 @@ func attack(parameters : AttackParams) -> void: pass
 
 
 func damage(victim : Entity) -> void:
-	victim.damage(attacker.attack_damage)
-	attacked.append(victim)
+	if attacker != null:
+		victim.damage(attacker.attack_damage)
+		attacked.append(victim)
