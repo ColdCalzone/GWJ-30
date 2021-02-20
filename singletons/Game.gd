@@ -51,7 +51,6 @@ func new_wave() -> void:
 	wave += 1
 	quota_multiplier = max(randf() * 5.0, 2.0)
 	wave_quota = round(wave * quota_multiplier)
-	print(wave_quota)
 	
 	# Add new spawners
 	for i in int(rand_range(2, 5)):
@@ -127,7 +126,6 @@ func update_spawners_max_spawns() -> void:
 
 
 func add_kill() -> void:
-	print("wave: ", wave)
 	wave_kills += 1
 	total_kills += 1
 	
