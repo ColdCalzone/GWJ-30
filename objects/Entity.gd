@@ -6,10 +6,13 @@ class_name Entity
 export var max_health : int
 export var move_speed : int
 
+onready var game := get_parent()
+
 var health : int
 var attack_damage : int
 var path : PoolVector2Array
 var target_point : Vector2
+var dead := false
 
 const PATH_POINT_THREASHOLD := 4
 
@@ -53,7 +56,9 @@ func damage(amount : int) -> void:
 	health = clamp(health - amount, 0, max_health)
 	damaged()
 	
-	if !health: die()
+	if !health && !dead:
+		dead = true
+		die()
 
 
 
