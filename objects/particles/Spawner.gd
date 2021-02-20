@@ -12,11 +12,5 @@ func start(params : ParticleParams) -> void:
 
 
 func _process(delta : float) -> void:
-	position = target.global_position
-	free_check()
-
-
-
-func free_check() -> void:
-	if target.is_queued_for_deletion():
-		queue_free()
+	if target != null: position = target.global_position
+	else: queue_free()
