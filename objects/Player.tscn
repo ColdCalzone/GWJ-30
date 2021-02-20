@@ -7,6 +7,7 @@
 extents = Vector2( 32, 32 )
 
 [node name="Player" type="KinematicBody2D" groups=[
+"entity",
 "player",
 ]]
 script = ExtResource( 2 )

@@ -8,6 +8,7 @@ extents = Vector2( 32, 32 )
 
 [node name="Enemy1" type="KinematicBody2D" groups=[
 "enemy",
+"entity",
 ]]
 script = ExtResource( 1 )
 move_speed = 100
