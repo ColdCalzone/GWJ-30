@@ -17,8 +17,13 @@ var handler # I HATE DYNAMIC BUT I HATE DUMB ERRORS MORE
 
 func _ready() -> void:
 	sprite.texture = load(weapon_data.texture)
-	sprite.position.x = sprite.texture.get_width() / 2.0
+#	sprite.position.x = sprite.texture.get_width() / 2.0
 	timer.wait_time = weapon_data.cooldown
+
+
+
+func _process(delta : float) -> void:
+	sprite.look_at(get_global_mouse_position())
 
 
 
@@ -40,7 +45,7 @@ func attack() -> void:
 
 
 func animation() -> void:
-	match weapon_data.attack_type:
+	match int(weapon_data.attack_type):
 		AttackTypes.Swipe: animation_player.play("swipe")
 		AttackTypes.Jab: animation_player.play("jab")
 
