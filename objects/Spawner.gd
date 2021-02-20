@@ -8,7 +8,7 @@ export var time_max : float
 export (Array, PackedScene) var entities : Array
 
 onready var target := global_position
-onready var world := get_parent()
+onready var game := get_parent()
 onready var timer := $Timer
 
 var spawns := []
@@ -49,11 +49,12 @@ func apply_movement(delta : float) -> void:
 
 func spawn_entity() -> void:
 	if len(spawns) < max_spawns:
-		var desired_entity : Entity = entities[randi() % len(entities)].instance()
+		var desired_entity : PackedScene = entities[randi() % len(entities)]
+		
 		spawns.append(desired_entity)
-		desired_entity.connect("tree_exiting", self, "entity_deleted")
-		world.add_child(desired_entity)
-		desired_entity.global_position = global_position
+		var instance : Entity = game.spawn_enemy(desired_entity, global_position)
+		instance.connect("tree_exiting", self, "entity_deleted")
+		
 		set_timer()
 
 
