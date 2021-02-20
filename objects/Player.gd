@@ -20,6 +20,9 @@ onready var animations = $Animations
 onready var collision = $Collision
 onready var camera = $Camera
 
+func _ready() -> void:
+	attack_damage = 2
+
 func _physics_process(delta : float):
 	var dir: Vector2 = Vector2.ZERO
 	# Input code
