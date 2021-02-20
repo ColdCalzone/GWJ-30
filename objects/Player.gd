@@ -22,6 +22,7 @@ onready var camera = $Camera
 
 func _ready() -> void:
 	attack_damage = 2
+	set_weapon("slap")
 
 func _physics_process(delta : float):
 	var dir: Vector2 = Vector2.ZERO
@@ -55,6 +56,4 @@ func _physics_process(delta : float):
 
 func _input(event) -> void:
 	if event is InputEventMouseButton:
-		var angle := rad2deg(get_angle_to(get_global_mouse_position()))
-		var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
-		CombatManager.attack(self, SwingAttackParams.new(global_position + offset, angle + 90))
+		weapon.use()

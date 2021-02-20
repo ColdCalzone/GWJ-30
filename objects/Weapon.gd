@@ -1,9 +1,9 @@
-extends Sprite
+extends Node2D
 class_name Weapon
 
 
 
-enum AnimationTypes { Swipe, Jab }
+enum AttackTypes { Swipe, Jab }
 
 onready var animation_player := $AnimationPlayer
 onready var anchor := $Anchor
@@ -11,26 +11,38 @@ onready var sprite := $Anchor/Sprite
 onready var timer := $Timer
 
 var weapon_data : Dictionary
+var handler # I HATE DYNAMIC BUT I HATE DUMB ERRORS MORE
 
 
 
 func _ready() -> void:
+	sprite.texture = load(weapon_data.texture)
 	sprite.position.x = sprite.texture.get_width() / 2.0
 	timer.wait_time = weapon_data.cooldown
 
 
 
-func use(animation_type : int) -> void:
+func use() -> void:
 	if !timer.time_left:
 		timer.start()
-		animation(animation_type)
+		animation()
+		attack()
 
 
 
-func animation(animation_type : int) -> void:
-	match animation_type:
-		AnimationTypes.Swipe: animation_player.play("swipe")
-		AnimationTypes.Jab: animation_player.play("jab")
+func attack() -> void:
+	match int(weapon_data.attack_type):
+		AttackTypes.Swipe:
+			var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+			var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
+			CombatManager.attack(handler, SwingAttackParams.new(global_position + offset, angle + 90))
+
+
+
+func animation() -> void:
+	match weapon_data.attack_type:
+		AttackTypes.Swipe: animation_player.play("swipe")
+		AttackTypes.Jab: animation_player.play("jab")
 
 
 

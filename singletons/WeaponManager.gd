@@ -8,15 +8,10 @@ const WEAPONS_DATA := "res://data/weapons.json"
 
 
 func get_weapon(weapon_name : String) -> Weapon:
-	var weapon_data := load_file(WEAPONS_DATA)
-	var weapon_instance : Weapon = WEAPON_PACKED.instanced()
+	var weapon_data : Dictionary = load_file(WEAPONS_DATA).get(weapon_name)
+	var weapon_instance : Weapon = WEAPON_PACKED.instance()
 	
-	weapon_instance.sprite.texture = load(weapon_data.texture)
-	weapon_instance.weapon_data = {
-		"damage": weapon_data.damage,
-		"cooldown": weapon_data.cooldown,
-		"attack_type": weapon_data.attack_type
-	}
+	weapon_instance.weapon_data = weapon_data
 	
 	return weapon_instance
 

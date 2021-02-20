@@ -95,7 +95,9 @@ func move(direction : Vector2) -> void:
 
 
 func set_weapon(weapon_name : String) -> void:
-	if weapon.is_inside_tree(): weapon.queue_free()
+	if weapon != null && weapon.is_inside_tree(): weapon.queue_free()
 	
 	weapon = WeaponManager.get_weapon(weapon_name)
+	weapon.handler = self
+	
 	add_child(weapon)
