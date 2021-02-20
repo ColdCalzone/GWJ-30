@@ -41,6 +41,10 @@ func attack() -> void:
 			var angle := rad2deg(get_angle_to(get_global_mouse_position()))
 			var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
 			CombatManager.attack(handler, SwingAttackParams.new(global_position + offset, angle + 90))
+		AttackTypes.Jab:
+			var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+			var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
+			CombatManager.attack(handler, JabAttackParams.new(global_position + offset, angle))
 
 
 

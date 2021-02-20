@@ -15,6 +15,7 @@ extends Node2D
 
 
 const ATT_SWING := preload("res://objects/attacks/Swing.tscn")
+const ATT_JAB := preload("res://objects/attacks/Jab.tscn")
 
 
 
@@ -24,6 +25,7 @@ func attack(attacker : Entity, parameters : AttackParams) -> void:
 	
 	match parameters.type:
 		AttackParams.Types.SWING: attack_packed = ATT_SWING
+		AttackParams.Types.JAB: attack_packed = ATT_JAB
 	
 	var attack_instance := attack_packed.instance()
 	add_child(attack_instance)

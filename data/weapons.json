@@ -9,7 +9,7 @@
 	"shortsword": {
 		"texture": "res://assets/weapons/shortsword.png",
 		"damage": 3,
-		"cooldown": 1.0,
+		"cooldown": 0.6,
 		"attack_type": 1
 	},
 	
