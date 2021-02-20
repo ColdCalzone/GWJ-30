@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://singletons/Game.gd" type="Script" id=1]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MoveSpawnersTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="MapRandomTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+[connection signal="timeout" from="MoveSpawnersTimer" to="." method="_on_MoveSpawnersTimer_timeout"]
+[connection signal="timeout" from="MapRandomTimer" to="." method="_on_MapRandomTimer_timeout"]
