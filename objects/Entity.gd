@@ -13,7 +13,7 @@ var attack_damage : int
 var path : PoolVector2Array
 var target_point : Vector2
 var dead := false
-var weapon : Weapon = WeaponManager.get_weapon("slap")
+var weapon : Weapon
 
 const PATH_POINT_THREASHOLD := 4
 
@@ -91,3 +91,11 @@ func pathfinding() -> void:
 
 func move(direction : Vector2) -> void:
 	move_and_slide(direction.normalized() * move_speed)
+
+
+
+func set_weapon(weapon_name : String) -> void:
+	if weapon.is_inside_tree(): weapon.queue_free()
+	
+	weapon = WeaponManager.get_weapon(weapon_name)
+	add_child(weapon)
