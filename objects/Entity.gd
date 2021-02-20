@@ -52,6 +52,8 @@ func get_random_enemy() -> Entity:
 func damage(amount : int) -> void:
 	health = clamp(health - amount, 0, max_health)
 	damaged()
+	
+	if !health: die()
 
 
 
