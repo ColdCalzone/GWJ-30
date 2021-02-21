@@ -29,8 +29,14 @@
 	
 	"bow": {
 		"texture": "res://assets/weapons/bow.png",
-		"damage": 10,
+		"damage": 6,
 		"cooldown": 1.0,
 		"attack_type": 2
-	}
+	},
+	
+	"cymbals": {
+		"texture": "res://assets/weapons/cymbals.png",
+		"damage": 12,
+		"cooldown": 2.0,
+		"attack_type": 3
 }
