@@ -156,9 +156,10 @@ func generate_random_spots(state : int, min_size : Vector2, max_size : Vector2) 
 	for x in size.x:
 		for y in size.y:
 			
-			if x + base.x in range(0, MAP_SIZE.x):
-				if abs(y + base.y) in range(0, MAP_SIZE.y):
-					Map.game_set_tile(state, Vector2(x + base.x, y + base.y))
+#			if x + base.x in range(0, MAP_SIZE.x):
+#				if abs(y + base.y) in range(0, MAP_SIZE.y):
+			if Map.get_tile_state(Vector2(x + base.x, y + base.y)) == Map.TileState.Free:
+				Map.game_set_tile(state, Vector2(x + base.x, y + base.y))
 
 
 
