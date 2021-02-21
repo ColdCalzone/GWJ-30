@@ -44,9 +44,9 @@ __meta__ = {
 
 [node name="MenuVBox" type="VBoxContainer" parent="MenuCenter"]
 margin_left = 412.0
-margin_top = 106.0
+margin_top = 57.0
 margin_right = 612.0
-margin_bottom = 294.0
+margin_bottom = 343.0
 custom_constants/separation = 8
 
 [node name="Play" type="Button" parent="MenuCenter/MenuVBox"]
@@ -56,10 +56,19 @@ rect_min_size = Vector2( 200, 90 )
 custom_fonts/font = ExtResource( 2 )
 text = "Play"
 
-[node name="Exit" type="Button" parent="MenuCenter/MenuVBox"]
+[node name="Help" type="Button" parent="MenuCenter/MenuVBox"]
 margin_top = 98.0
 margin_right = 200.0
 margin_bottom = 188.0
 rect_min_size = Vector2( 200, 90 )
 custom_fonts/font = ExtResource( 2 )
+text = "Help"
+
+[node name="Exit" type="Button" parent="MenuCenter/MenuVBox"]
+margin_top = 196.0
+margin_right = 200.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 200, 90 )
+custom_fonts/font = ExtResource( 2 )
 text = "Exit"
+[connection signal="pressed" from="MenuCenter/MenuVBox/Help" to="." method="_on_Help_pressed"]

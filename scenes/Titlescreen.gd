@@ -14,3 +14,6 @@ func button_pressed(id : String):
 	match id:
 		"play": TransitionManager.transition(game)
 		"exit": TransitionManager.transition(exit_workaround)
+
+func _on_Help_pressed():
+	pass # Replace with function body.
