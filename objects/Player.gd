@@ -81,6 +81,14 @@ func camera_behavior() -> void:
 
 
 
+func damaged() -> void:
+	tween.stop_all()
+	tween.interpolate_property(self, "rotation_degrees", [-27, 27][randi() % 2], 0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(self, "modulate", Color.red, Color.white, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+
+
+
 func die() -> void:
 	AudioManager.rocken_music.stop()
 	tween.interpolate_property(camera, "position", camera.position, Vector2.ZERO, 2.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
