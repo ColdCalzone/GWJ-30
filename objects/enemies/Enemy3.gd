@@ -8,10 +8,12 @@ onready var player := get_random_player()
 onready var target := get_random_target()
 onready var attack_timer := $AttackTimer
 onready var tween := $Tween
+onready var mash_sprite := $MashSprite
 
 
 
 func _ready() -> void:
+	mash_sprite.head_sprite.frame = MashSprite.Heads.Thief
 	health = max_health
 	attack_damage = 1
 	
@@ -56,9 +58,7 @@ func attempt_attack(target_player : Entity) -> void:
 	if !attack_timer.time_left:
 		attack_timer.start()
 		
-		var angle := rad2deg(get_angle_to(target_player.global_position))
-		var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
-		weapon.use(SwingAttackParams.new(global_position + offset, angle))
+		weapon.use(target_player)
 
 
 

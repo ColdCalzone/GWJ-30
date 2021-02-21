@@ -8,10 +8,12 @@ export var target_player_distance_max : float
 onready var attack_timer := $AttackTimer
 onready var tween := $Tween
 onready var target := get_random_player()
+onready var mash_sprite := $MashSprite
 
 
 
 func _ready() -> void:
+	mash_sprite.head_sprite.frame = MashSprite.Heads.Archer
 	health = max_health
 	attack_damage = 2
 	set_weapon("bow")
@@ -41,9 +43,7 @@ func attempt_attack() -> void:
 	if !attack_timer.time_left:
 		attack_timer.start()
 		
-		var angle := rad2deg(get_angle_to(target.global_position))
-		var direction := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle)))
-		weapon.use(ArrowAttackParams.new(global_position, angle, direction))
+		weapon.use(target)
 
 
 

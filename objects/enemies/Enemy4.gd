@@ -2,20 +2,20 @@ extends Entity
 
 
 
-export var target_player_distance : int
+export var target_player_distance : float
 
+onready var target := get_random_player()
 onready var attack_timer := $AttackTimer
 onready var tween := $Tween
-onready var target := get_random_player()
 onready var mash_sprite := $MashSprite
 
 
 
 func _ready() -> void:
-	mash_sprite.head_sprite.frame = MashSprite.Heads.Goblin
+	mash_sprite.head_sprite.frame = MashSprite.Heads.Bub
 	health = max_health
-	attack_damage = 1
-	set_weapon(["slap", "slap", "shortsword"][randi() % 3])
+	attack_damage = 3
+	set_weapon(["longsword", "brass_knuckles", "cymbals"][randi() % 3])
 
 
 
@@ -36,7 +36,7 @@ func get_near_player() -> void:
 
 
 func attempt_attack() -> void:
-	if attack_timer.time_left == 0:
+	if !attack_timer.time_left:
 		attack_timer.start()
 		
 		weapon.use(target)
