@@ -22,3 +22,4 @@ func _process(delta : float) -> void:
 func beat() -> void:
 	heart_sprite.frame = 0
 	heart_sprite.play("default")
+	AudioManager.play_sfx("beat", get_tree().get_nodes_in_group("player")[0].global_position)
