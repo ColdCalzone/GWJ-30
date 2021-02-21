@@ -15,6 +15,7 @@ var wave_enemies := 0
 const ENEMY1_PACKED := preload("res://objects/enemies/Enemy1.tscn")
 const PLAYER_PACKED := preload("res://objects/Player.tscn")
 const SPAWNER_PACKED := preload("res://objects/Spawner.tscn")
+const HUD_PACKED := preload("res://hud/HUD.tscn")
 
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
@@ -34,6 +35,13 @@ func setup() -> void:
 	AudioManager.play_music("rocken")
 	spawn_player(Vector2(MAP_SIZE.x * 32.0 / 2.0, MAP_SIZE.y * 32.0 / 2.0))
 	new_wave()
+	add_hud()
+
+
+
+func add_hud() -> void:
+	var hud_instance := HUD_PACKED.instance()
+	add_child(hud_instance)
 
 
 
