@@ -40,6 +40,7 @@ func use(opt_params : AttackParams = null) -> void:
 
 
 func gray_out() -> void:
+	tween.stop_all()
 	tween.interpolate_property(sprite, "modulate", Color(0.1, 0.1, 0.1), Color(1.0, 1.0, 1.0), weapon_data.cooldown)
 	tween.start()
 
@@ -87,6 +88,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 
 func _on_ResetTimer_timeout() -> void:
 	timer.start()
+	gray_out()
 
 
 func _on_Tween_tween_completed(_object : Object, _key : NodePath) -> void:
