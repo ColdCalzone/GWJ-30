@@ -45,4 +45,6 @@ anims/pulse = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="AdrenalineTween" type="Tween" parent="."]
+
 [node name="MashSprite" parent="." instance=ExtResource( 1 )]

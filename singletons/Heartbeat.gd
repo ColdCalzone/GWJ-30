@@ -18,6 +18,7 @@ signal beat()
 
 
 func _process(delta : float) -> void:
+	step = bpm / 60.0
 	metric(delta)
 
 

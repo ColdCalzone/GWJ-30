@@ -7,8 +7,10 @@ export(float) var speed: float = 5.0
 export(float) var acceleration: float = 1.0
 export(float) var friction: float = 1.0
 export(float) var attack_range: float = 1.0
+export(float) var speed_adren: float = 7.5
 export(float) var adren_rate: float = 1.0
 export(float) var max_adren: float = 200.0
+export(float) var adren_time: float = 10.0
 var current_adren: float = 0.0
 
 var direction : Vector2 = Vector2.ZERO
@@ -23,6 +25,7 @@ onready var collision = $Collision
 onready var camera = $Camera
 onready var camera_pulse = $Camera/Pulse
 onready var tween = $Tween
+onready var adrenaline_tween = $AdrenalineTween
 
 const GAMEOVER_SCENE := preload("res://scenes/Gameover.tscn")
 
@@ -44,6 +47,7 @@ func _physics_process(delta : float):
 
 func _input(event) -> void:
 	if event.is_action_pressed("attack"): weapon.use(get_global_mouse_position())
+	if event.is_action_pressed("adrenaline"): attempt_adrenaline()
 
 
 
@@ -78,6 +82,30 @@ func camera_behavior() -> void:
 	
 	if Heartbeat.is_in_range():
 		camera_pulse.play("pulse")
+
+
+
+func attempt_adrenaline() -> void:
+	if !adrenaline_tween.is_active() && current_adren == max_adren:
+		adrenaline_tween.interpolate_property(self, "current_adren", max_adren, 0, adren_time)
+		adrenaline_tween.start()
+		
+		var rem_speed := speed
+		
+		Heartbeat.bpm = 120.0
+		GlobalData.adrenaline_rush = true
+		speed = speed_adren
+		
+		yield(adrenaline_tween, "tween_completed")
+		
+		Heartbeat.bpm = 60.0
+		GlobalData.adrenaline_rush = false
+		speed = rem_speed
+
+
+
+func increase_adrenaline(amount : int) -> void:
+	current_adren = clamp(current_adren + amount, 0, max_adren)
 
 
 

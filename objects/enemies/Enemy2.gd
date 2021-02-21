@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
 	get_safe_distance()
-	pathfinding()
+	if !GlobalData.adrenaline_rush: pathfinding()
 
 
 

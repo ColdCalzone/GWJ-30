@@ -25,7 +25,7 @@ func _process(delta : float) -> void:
 	steal_treasures()
 	get_near_player()
 	attack_near_players()
-	pathfinding()
+	if !GlobalData.adrenaline_rush: pathfinding()
 
 
 

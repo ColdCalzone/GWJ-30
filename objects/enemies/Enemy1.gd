@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
 	get_near_player()
-	pathfinding()
+	if !GlobalData.adrenaline_rush: pathfinding()
 
 
 
