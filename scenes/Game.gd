@@ -3,7 +3,6 @@ extends Node2D
 
 
 onready var wave_timer := $WaveTimer
-onready var player : Entity = get_tree().get_nodes_in_group("player")[0]
 
 var wave_quota := 0
 var wave := 0
@@ -58,7 +57,7 @@ func add_hud() -> void:
 func new_wave() -> void:
 	# Bonus
 	spawn_superpower()
-	player.add_adrenaline(randi() % 15)
+	get_player().add_adrenaline(randi() % 15)
 	
 	
 	# Reset stuff
@@ -83,6 +82,12 @@ func new_wave() -> void:
 		add_spawner(Vector2(x_spawn, y_spawn))
 	
 	update_spawners_max_spawns()
+
+
+
+func get_player() -> Entity:
+	var result : Entity = get_tree().get_nodes_in_group("player")[0]
+	return result
 
 
 
@@ -184,7 +189,7 @@ func add_kill() -> void:
 	wave_kills += 1
 	total_kills += 1
 	
-	player.increase_adrenaline(randi() % 10)
+	get_player().add_adrenaline(randi() % 10)
 	
 	if wave_kills == wave_quota:
 		new_wave()
