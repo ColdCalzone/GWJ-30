@@ -34,6 +34,7 @@ func attack(attacker : Entity, parameters : AttackParams) -> void:
 	var attack_instance := attack_packed.instance()
 	add_child(attack_instance)
 	
+	attack_instance.on_beat = Heartbeat.is_in_range()
 	attack_instance.attacker = attacker
 	attack_instance.attack(parameters)
 

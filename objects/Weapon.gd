@@ -9,6 +9,8 @@ onready var animation_player := $AnimationPlayer
 onready var anchor := $Anchor
 onready var sprite := $Anchor/Sprite
 onready var timer := $Timer
+onready var cooldown_timer := $Cooldown
+onready var reset_timer := $ResetTimer
 
 var weapon_data : Dictionary
 var handler # I HATE DYNAMIC BUT I HATE DUMB ERRORS MORE
@@ -28,8 +30,8 @@ func _process(delta : float) -> void:
 
 
 func use() -> void:
-	if !timer.time_left:
-		timer.start()
+	if !cooldown_timer.time_left:
+		cooldown_timer.start()
 		animation()
 		attack()
 
@@ -67,5 +69,10 @@ func reset_animation() -> void:
 
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	reset_animation()
+
+
+
+func _on_ResetTimer_timeout() -> void:
+	timer.start()

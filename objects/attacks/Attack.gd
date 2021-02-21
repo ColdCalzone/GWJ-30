@@ -5,6 +5,7 @@ class_name Attack
 
 var attacker : Entity
 var attacked : Array
+var on_beat : bool
 
 
 
@@ -19,10 +20,13 @@ func damage(victim : Entity) -> void:
 		var final_damage := attacker.attack_damage
 		var weapon := attacker.weapon
 		
-		if attacker.is_in_group("player") && Heartbeat.is_in_range() && !weapon.timer.time_left:
+		if attacker.is_in_group("player") && on_beat && !weapon.timer.time_left:
+			print("lmao")
 			final_damage += weapon.weapon_data.get("damage")
 		elif attacker.is_in_group("enemy"):
 			final_damage += weapon.weapon_data.get("damage")
+		
+		weapon.reset_timer.start()
 		
 		victim.damage(final_damage)
 		attacked.append(victim)
