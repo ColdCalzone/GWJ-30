@@ -14,6 +14,7 @@ var path : PoolVector2Array
 var target_point : Vector2
 var dead := false
 var weapon : Weapon
+var drop_chance := 0.05
 
 const PATH_POINT_THREASHOLD := 4
 
@@ -59,6 +60,9 @@ func damage(amount : int) -> void:
 	DamageNotifierManager.list_damage(amount, global_position, self)
 	
 	if !health && !dead:
+		var result = randf()
+		if result < drop_chance && !is_in_group("player"):
+			game.drop_weapon(weapon.weapon_name, global_position)
 		dead = true
 		die()
 
