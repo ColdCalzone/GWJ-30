@@ -58,7 +58,7 @@ func attempt_attack(target_player : Entity) -> void:
 	if !attack_timer.time_left:
 		attack_timer.start()
 		
-		weapon.use(target_player)
+		weapon.use(target_player.global_position)
 
 
 

@@ -43,7 +43,7 @@ func _physics_process(delta : float):
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("attack"): weapon.use()
+	if event.is_action_pressed("attack"): weapon.use(get_global_mouse_position())
 
 
 

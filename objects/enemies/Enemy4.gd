@@ -39,7 +39,7 @@ func attempt_attack() -> void:
 	if !attack_timer.time_left:
 		attack_timer.start()
 		
-		weapon.use(target)
+		weapon.use(target.global_position)
 
 
 
