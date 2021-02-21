@@ -16,6 +16,7 @@ const ENEMY1_PACKED := preload("res://objects/enemies/Enemy1.tscn")
 const PLAYER_PACKED := preload("res://objects/Player.tscn")
 const SPAWNER_PACKED := preload("res://objects/Spawner.tscn")
 const HUD_PACKED := preload("res://hud/HUD.tscn")
+const WEAPON_PICKUP_PACKED := preload("res://objects/WeaponPickup.tscn")
 
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
@@ -65,6 +66,16 @@ func new_wave() -> void:
 		var x_spawn := rand_range(0, MAP_SIZE.x * 32)
 		var y_spawn := rand_range(0, MAP_SIZE.y * 32)
 		add_spawner(Vector2(x_spawn, y_spawn))
+
+
+
+func drop_weapon(weapon_name : String, set_position : Vector2) -> void:
+	var weapon_pickup_instance : WeaponPickup = WEAPON_PICKUP_PACKED.instance()
+	
+	weapon_pickup_instance.weapon_name = weapon_name
+	weapon_pickup_instance.position = set_position
+	
+	add_child(weapon_pickup_instance)
 
 
 
