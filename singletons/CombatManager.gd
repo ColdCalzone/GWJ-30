@@ -33,8 +33,8 @@ func attack(attacker : Entity, parameters : AttackParams) -> void:
 	
 	var attack_instance := attack_packed.instance()
 	add_child(attack_instance)
-	
-	if Heartbeat.is_in_range() && attacker.is_in_group("player") && !attacker.weapon.cooldown_timer.time_left: attack_instance.modulate = Color.yellow
+	print(attacker.weapon.timer.time_left)
+	if Heartbeat.is_in_range() && attacker.is_in_group("player") && !attacker.weapon.timer.time_left: attack_instance.modulate = Color.yellow
 	attack_instance.on_beat = Heartbeat.is_in_range()
 	attack_instance.attacker = attacker
 	attack_instance.attack(parameters)

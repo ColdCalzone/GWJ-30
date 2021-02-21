@@ -23,6 +23,7 @@ func _ready() -> void:
 	sprite.texture = load(weapon_data.texture)
 #	sprite.position.x = sprite.texture.get_width() / 2.0
 	timer.wait_time = weapon_data.cooldown
+	timer.start()
 
 
 
@@ -34,9 +35,14 @@ func _process(delta : float) -> void:
 func use(opt_params : AttackParams = null) -> void:
 	if !cooldown_timer.time_left:
 		cooldown_timer.start()
-		tween.interpolate_property(sprite, "modulate", Color(0.5, 0.5, 0.5), Color(1.0, 1.0, 1.0), weapon_data.cooldown)
 		animation()
 		attack(opt_params)
+
+
+
+func gray_out() -> void:
+	tween.interpolate_property(sprite, "modulate", Color(0.1, 0.1, 0.1), Color(1.0, 1.0, 1.0), weapon_data.cooldown)
+	tween.start()
 
 
 
