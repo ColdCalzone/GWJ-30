@@ -128,6 +128,9 @@ func update_spawners_max_spawns() -> void:
 	var remain := wave_quota
 	
 	for s in spawners:
+		s.max_spawns = 0
+	
+	for s in spawners:
 		if !remain: break
 		s.max_spawns += 1
 		remain -= 1
