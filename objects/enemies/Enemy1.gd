@@ -11,8 +11,7 @@ onready var target := get_random_player()
 
 
 func _ready() -> void:
-	max_health = 10
-	health = 10
+	health = max_health
 	attack_damage = 1
 	set_weapon(["slap", "slap", "shortsword"][randi() % 3])
 
@@ -39,7 +38,7 @@ func attempt_attack() -> void:
 		attack_timer.start()
 		var angle := rad2deg(get_angle_to(target.global_position))
 		var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
-		CombatManager.attack(self, SwingAttackParams.new(global_position + offset, angle + 90))
+		weapon.use(SwingAttackParams.new(global_position + offset, angle + 90))
 
 
 
