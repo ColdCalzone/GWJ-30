@@ -11,5 +11,5 @@ dest_files=[ "res://.import/cymbal_crash.ogg-52b63e0dc50846fdcedf4299b006fd4f.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
