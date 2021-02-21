@@ -10,10 +10,12 @@ radius = 24.0
 script = ExtResource( 1 )
 max_health = 30
 move_speed = 40
+target_player_distance = 100.0
 
 [node name="MashSprite" parent="." instance=ExtResource( 2 )]
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 24 )
