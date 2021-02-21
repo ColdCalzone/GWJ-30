@@ -23,7 +23,9 @@ const WEAPON_PICKUP_PACKED := preload("res://objects/WeaponPickup.tscn")
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
-	[ENEMY3_PACKED]: 0
+	[ENEMY1_PACKED]: 0,
+	[ENEMY2_PACKED]: 6,
+	[ENEMY3_PACKED]: 10
 }
 
 
