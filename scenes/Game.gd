@@ -27,9 +27,9 @@ const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
 	[ENEMY1_PACKED]: 0,
-	[ENEMY2_PACKED]: 5,
-	[ENEMY3_PACKED]: 10,
-	[ENEMY4_PACKED]: 15
+	[ENEMY2_PACKED]: 2,
+	[ENEMY3_PACKED]: 3,
+	[ENEMY4_PACKED]: 4
 }
 
 
@@ -148,10 +148,9 @@ func add_spawner(set_position : Vector2) -> void:
 	spawner_instance.position = set_position
 	spawner_instance.time_min = 2.0
 	spawner_instance.time_max = 4.0
-	spawner_instance.entities = ENEMY_WAVES.keys()[0]
-#	while true:
-#		spawner_instance.entities = ENEMY_WAVES.keys()[randi() % len(ENEMY_WAVES)]
-#		if wave >= ENEMY_WAVES.get(spawner_instance.entities): break
+	while true:
+		spawner_instance.entities = ENEMY_WAVES.keys()[randi() % len(ENEMY_WAVES)]
+		if wave >= ENEMY_WAVES.get(spawner_instance.entities): break
 	
 	add_child(spawner_instance)
 	spawners.append(spawner_instance)
