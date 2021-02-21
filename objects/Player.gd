@@ -17,7 +17,7 @@ var velocity : Vector2 = Vector2.ZERO
 #not lookin forward to that lol
 var action_buffer: Array = []
 
-onready var sprite = $Sprite
+onready var mash_sprite = $MashSprite
 onready var animations = $Animations
 onready var collision = $Collision
 onready var camera = $Camera
