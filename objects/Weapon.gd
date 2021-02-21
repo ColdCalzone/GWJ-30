@@ -11,6 +11,7 @@ onready var sprite := $Anchor/Sprite
 onready var timer := $Timer
 onready var cooldown_timer := $Cooldown
 onready var reset_timer := $ResetTimer
+onready var tween := $Tween
 
 var weapon_name : String
 var weapon_data : Dictionary
@@ -33,6 +34,7 @@ func _process(delta : float) -> void:
 func use(opt_params : AttackParams = null) -> void:
 	if !cooldown_timer.time_left:
 		cooldown_timer.start()
+		tween.interpolate_property(sprite, "modulate", Color(0.5, 0.5, 0.5), Color(1.0, 1.0, 1.0), weapon_data.cooldown)
 		animation()
 		attack(opt_params)
 
@@ -80,3 +82,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 
 func _on_ResetTimer_timeout() -> void:
 	timer.start()
+
+
+func _on_Tween_tween_completed(_object : Object, _key : NodePath) -> void:
+	animation_player.play("glow")
