@@ -92,3 +92,4 @@ func _on_ResetTimer_timeout() -> void:
 
 func _on_Tween_tween_completed(_object : Object, _key : NodePath) -> void:
 	animation_player.play("glow")
+	ParticleManager.spawn(WeaponReadyParticleParams.new(global_position))
