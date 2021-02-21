@@ -30,7 +30,6 @@ const ENEMY_WAVES := {
 
 func _ready() -> void:
 	setup()
-	drop_weapon("longsword", Vector2(200, 200))
 
 
 
