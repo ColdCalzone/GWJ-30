@@ -16,4 +16,4 @@ func button_pressed(id : String):
 		"exit": TransitionManager.transition(exit_workaround)
 
 func _on_Help_pressed():
-	pass # Replace with function body.
+	OS.shell_open("https://iamisaac.itch.io/heart-beat")

@@ -195,6 +195,7 @@ func add_kill() -> void:
 	wave_kills += 1
 	total_kills += 1
 	GlobalData.wave_enemies_killed += 1
+	GlobalData.enemies_killed += 1
 	
 	get_player().add_adrenaline(randi() % 10)
 	
