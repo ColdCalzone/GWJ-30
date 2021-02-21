@@ -13,10 +13,12 @@ onready var placeholder_music = $PlaceHolderMusic
 onready var rocken_music = $RockenMusic
 onready var bird_chirps_amb = $BirdChirps
 onready var warning = $Warning
+onready var cymbal_crash = $CymbalCrash
 
 onready var sfx = {
 	"swish": swish_sfx,
-	"warning": warning
+	"warning": warning,
+	"cymbal": cymbal_crash
 }
 
 onready var music = {

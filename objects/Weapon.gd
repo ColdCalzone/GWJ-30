@@ -3,7 +3,7 @@ class_name Weapon
 
 
 
-enum AttackTypes { Swipe, Jab, Arrow }
+enum AttackTypes { Swipe, Jab, Arrow, Clang }
 
 onready var animation_player := $AnimationPlayer
 onready var anchor := $Anchor
@@ -49,6 +49,8 @@ func attack() -> void:
 			var angle := rad2deg(get_angle_to(get_global_mouse_position()))
 			var direction := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle)))
 			CombatManager.attack(handler, ArrowAttackParams.new(global_position, angle, direction))
+		AttackTypes.Clang:
+			CombatManager.attack(handler, ClangAttackParams.new(global_position))
 
 
 

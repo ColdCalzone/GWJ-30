@@ -17,6 +17,7 @@ extends Node2D
 const ATT_SWING := preload("res://objects/attacks/Swing.tscn")
 const ATT_JAB := preload("res://objects/attacks/Jab.tscn")
 const ATT_ARROW := preload("res://objects/attacks/Arrow.tscn")
+const ATT_CLANG := preload("res://objects/attacks/Clang.tscn")
 
 
 
@@ -28,6 +29,7 @@ func attack(attacker : Entity, parameters : AttackParams) -> void:
 		AttackParams.Types.SWING: attack_packed = ATT_SWING
 		AttackParams.Types.JAB: attack_packed = ATT_JAB
 		AttackParams.Types.ARROW: attack_packed = ATT_ARROW
+		AttackParams.Types.CLANG: attack_packed = ATT_CLANG
 	
 	var attack_instance := attack_packed.instance()
 	add_child(attack_instance)

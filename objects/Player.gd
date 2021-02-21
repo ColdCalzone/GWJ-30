@@ -22,7 +22,7 @@ onready var camera = $Camera
 
 func _ready() -> void:
 	attack_damage = 2
-	set_weapon("slap")
+	set_weapon("cymbals")
 
 func _physics_process(delta : float):
 	var dir: Vector2 = Vector2.ZERO
