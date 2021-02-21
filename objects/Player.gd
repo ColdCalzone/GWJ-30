@@ -38,7 +38,12 @@ func _ready() -> void:
 
 
 
-func _physics_process(delta : float):
+func _process(delta : float) -> void:
+	update_health()
+
+
+
+func _physics_process(delta : float) -> void:
 	input_movement()
 	apply_movement()
 	camera_behavior()
@@ -104,8 +109,13 @@ func attempt_adrenaline() -> void:
 
 
 
-func increase_adrenaline(amount : int) -> void:
+func add_adrenaline(amount : int) -> void:
 	current_adren = clamp(current_adren + amount, 0, max_adren)
+
+
+
+func update_health() -> void:
+	health = clamp(health, 0, max_health)
 
 
 
