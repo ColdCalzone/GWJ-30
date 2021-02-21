@@ -32,10 +32,10 @@ func _process(delta : float) -> void:
 
 
 
-func use(opt_params : AttackParams = null) -> void:
+func use(target : Entity = null) -> void:
 	if !cooldown_timer.time_left:
 		cooldown_timer.start()
-		attack(opt_params)
+		attack(target)
 
 
 
@@ -46,21 +46,23 @@ func gray_out() -> void:
 
 
 
-func attack(opt_params : AttackParams = null) -> void:
-	if opt_params != null:
-		CombatManager.attack(handler, opt_params)
+func attack(target : Entity = null) -> void:
+	var target_position : Vector2
+	
+	if target != null:
+		target_position = get_global_mouse_position()
 	else:
 		match int(weapon_data.attack_type):
 			AttackTypes.Swipe:
-				var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+				var angle := rad2deg(get_angle_to(target_position))
 				var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
 				CombatManager.attack(handler, SwingAttackParams.new(global_position + offset, angle + 90))
 			AttackTypes.Jab:
-				var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+				var angle := rad2deg(get_angle_to(target_position))
 				var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
 				CombatManager.attack(handler, JabAttackParams.new(global_position + offset, angle))
 			AttackTypes.Arrow:
-				var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+				var angle := rad2deg(get_angle_to(target_position))
 				var direction := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle)))
 				CombatManager.attack(handler, ArrowAttackParams.new(global_position, angle, direction))
 			AttackTypes.Clang:
