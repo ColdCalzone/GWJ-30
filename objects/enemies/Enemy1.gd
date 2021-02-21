@@ -30,6 +30,7 @@ func get_near_player() -> void:
 		attempt_attack()
 	else:
 		pathfind_entity(target)
+		attack_timer.start()
 
 
 
