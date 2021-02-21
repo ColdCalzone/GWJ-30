@@ -15,6 +15,7 @@ var wave_enemies := 0
 const ENEMY1_PACKED := preload("res://objects/enemies/Enemy1.tscn")
 const ENEMY2_PACKED := preload("res://objects/enemies/Enemy2.tscn")
 const ENEMY3_PACKED := preload("res://objects/enemies/Enemy3.tscn")
+const ENEMY4_PACKED := preload("res://objects/enemies/Enemy4.tscn")
 const PLAYER_PACKED := preload("res://objects/Player.tscn")
 const SPAWNER_PACKED := preload("res://objects/Spawner.tscn")
 const HUD_PACKED := preload("res://hud/HUD.tscn")
@@ -24,8 +25,9 @@ const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
 	[ENEMY1_PACKED]: 0,
-	[ENEMY2_PACKED]: 6,
-	[ENEMY3_PACKED]: 10
+	[ENEMY2_PACKED]: 5,
+	[ENEMY3_PACKED]: 10,
+	[ENEMY4_PACKED]: 15
 }
 
 
