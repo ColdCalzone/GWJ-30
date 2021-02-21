@@ -35,7 +35,6 @@ func _process(delta : float) -> void:
 func use(opt_params : AttackParams = null) -> void:
 	if !cooldown_timer.time_left:
 		cooldown_timer.start()
-		animation()
 		attack(opt_params)
 
 
