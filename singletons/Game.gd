@@ -125,11 +125,12 @@ func move_spawners() -> void:
 
 
 func update_spawners_max_spawns() -> void:
-	for s in spawners:
-		s.max_spawns = wave_quota / int(len(spawners))
+	var remain := wave_quota
 	
-	for i in wave_quota % int(len(spawners)):
-		spawners[i % len(spawners)].max_spawns += 1
+	for s in spawners:
+		if !remain: break
+		s.max_spawns += 1
+		remain -= 1
 
 
 
