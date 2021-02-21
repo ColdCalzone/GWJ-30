@@ -13,6 +13,8 @@ var total_kills := 0
 var wave_enemies := 0
 
 const ENEMY1_PACKED := preload("res://objects/enemies/Enemy1.tscn")
+const ENEMY2_PACKED := preload("res://objects/enemies/Enemy2.tscn")
+const ENEMY3_PACKED := preload("res://objects/enemies/Enemy3.tscn")
 const PLAYER_PACKED := preload("res://objects/Player.tscn")
 const SPAWNER_PACKED := preload("res://objects/Spawner.tscn")
 const HUD_PACKED := preload("res://hud/HUD.tscn")
@@ -21,13 +23,14 @@ const WEAPON_PICKUP_PACKED := preload("res://objects/WeaponPickup.tscn")
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
-	[ENEMY1_PACKED]: 0
+	[ENEMY3_PACKED]: 0
 }
 
 
 
 func _ready() -> void:
 	setup()
+	drop_weapon("longsword", Vector2(200, 200))
 
 
 
@@ -52,6 +55,7 @@ func new_wave() -> void:
 	wave_kills = 0
 	
 	reset_map()
+	clear_spawners()
 	
 	wave_timer.start()
 	yield(wave_timer, "timeout")
@@ -66,6 +70,8 @@ func new_wave() -> void:
 		var x_spawn := rand_range(0, MAP_SIZE.x * 32)
 		var y_spawn := rand_range(0, MAP_SIZE.y * 32)
 		add_spawner(Vector2(x_spawn, y_spawn))
+	
+	update_spawners_max_spawns()
 
 
 
@@ -116,7 +122,6 @@ func add_spawner(set_position : Vector2) -> void:
 	
 	add_child(spawner_instance)
 	spawners.append(spawner_instance)
-	update_spawners_max_spawns()
 
 
 
@@ -137,14 +142,16 @@ func move_spawners() -> void:
 
 func update_spawners_max_spawns() -> void:
 	var remain := wave_quota
+	var index := 0
 	
 	for s in spawners:
 		s.max_spawns = 0
 	
-	for s in spawners:
+	while true:
 		if !remain: break
-		s.max_spawns += 1
+		spawners[index].max_spawns += 1
 		remain -= 1
+		index = wrapi(index + 1, 0, len(spawners))
 
 
 
