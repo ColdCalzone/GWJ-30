@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="Enemy2" type="KinematicBody2D"]
+[node name="Enemy2" type="KinematicBody2D" groups=[
+"enemy",
+]]
 script = ExtResource( 1 )
 max_health = 6
 move_speed = 60
