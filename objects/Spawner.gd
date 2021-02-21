@@ -53,7 +53,7 @@ func spawn_entity() -> void:
 		
 		spawns.append(desired_entity)
 		var instance : Entity = game.spawn_enemy(desired_entity, global_position)
-		instance.connect("tree_exiting", self, "entity_deleted")
+		if instance != null: instance.connect("tree_exiting", self, "entity_deleted")
 		
 		set_timer()
 
