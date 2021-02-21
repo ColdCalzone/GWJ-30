@@ -20,7 +20,9 @@ const PLAYER_PACKED := preload("res://objects/Player.tscn")
 const SPAWNER_PACKED := preload("res://objects/Spawner.tscn")
 const HUD_PACKED := preload("res://hud/HUD.tscn")
 const WEAPON_PICKUP_PACKED := preload("res://objects/WeaponPickup.tscn")
+const SUPERPOWER_PACKED := preload("res://objects/Superpower.tscn")
 
+const SUPERPOWERS := ["health", "current_adren"]
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
@@ -57,6 +59,7 @@ func new_wave() -> void:
 	wave_enemies = 0
 	wave_kills = 0
 	
+	spawn_superpower()
 	reset_map()
 	clear_spawners()
 	
@@ -75,6 +78,20 @@ func new_wave() -> void:
 		add_spawner(Vector2(x_spawn, y_spawn))
 	
 	update_spawners_max_spawns()
+
+
+
+func spawn_superpower() -> void:
+	var superpower_instance : Superpower = SUPERPOWER_PACKED.instance()
+	
+	superpower_instance.modifying_variable = SUPERPOWERS[randi() % len(SUPERPOWERS)]
+	superpower_instance.amount = randi() % 20 + 1
+	superpower_instance.position = Vector2(
+		randi() % int(MAP_SIZE.x * 32),
+		randi() % int(MAP_SIZE.y * 32)
+	)
+	
+	add_child(superpower_instance)
 
 
 
