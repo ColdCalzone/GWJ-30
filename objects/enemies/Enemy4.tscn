@@ -15,6 +15,7 @@ target_player_distance = 100.0
 [node name="MashSprite" parent="." instance=ExtResource( 2 )]
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.9
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

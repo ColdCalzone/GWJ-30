@@ -19,6 +19,7 @@ shape = SubResource( 1 )
 [node name="AttackTimer" type="Timer" parent="." groups=[
 "enemy",
 ]]
+wait_time = 0.5
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]

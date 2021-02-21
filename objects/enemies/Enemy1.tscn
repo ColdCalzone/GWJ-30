@@ -16,6 +16,7 @@ move_speed = 100
 target_player_distance = 80
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.7
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
