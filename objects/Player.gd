@@ -22,11 +22,15 @@ onready var animations = $Animations
 onready var collision = $Collision
 onready var camera = $Camera
 onready var camera_pulse = $Camera/Pulse
+onready var tween = $Tween
+
+const GAMEOVER_SCENE := preload("res://scenes/Gameover.tscn")
 
 
 
 func _ready() -> void:
 	attack_damage = 2
+	health = max_health
 	set_weapon("slap")
 
 
@@ -74,3 +78,12 @@ func camera_behavior() -> void:
 	
 	if Heartbeat.is_in_range():
 		camera_pulse.play("pulse")
+
+
+
+func die() -> void:
+	AudioManager.rocken_music.stop()
+	tween.interpolate_property(camera, "position", camera.position, Vector2.ZERO, 2.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_completed")
+	TransitionManager.transition(GAMEOVER_SCENE)

@@ -27,6 +27,7 @@ tracks/0/keys = {
 "player",
 ]]
 script = ExtResource( 2 )
+max_health = 40
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -43,3 +44,5 @@ smoothing_enabled = true
 
 [node name="Pulse" type="AnimationPlayer" parent="Camera"]
 anims/pulse = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
