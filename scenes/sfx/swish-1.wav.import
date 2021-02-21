@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/swish-1.wav-35c986adade431e20eeaa0c3d690e607.sample"
+path="res://.import/swish-1.wav-7b28813b6c0b7305bcf3a43c8e576e81.sample"
 
 [deps]
 
-source_file="res://sfx/swish-1.wav"
-dest_files=[ "res://.import/swish-1.wav-35c986adade431e20eeaa0c3d690e607.sample" ]
+source_file="res://scenes/sfx/swish-1.wav"
+dest_files=[ "res://.import/swish-1.wav-7b28813b6c0b7305bcf3a43c8e576e81.sample" ]
 
 [params]
 

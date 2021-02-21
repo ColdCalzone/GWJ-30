@@ -3,6 +3,8 @@
 [ext_resource path="res://singletons/Map.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilemap.png" type="Texture" id=2]
 
+
+
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]

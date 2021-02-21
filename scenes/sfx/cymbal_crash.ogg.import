@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cymbal_crash.ogg-b7af3ab60d887309bd76d57e8d2574f2.oggstr"
+
+[deps]
+
+source_file="res://scenes/sfx/cymbal_crash.ogg"
+dest_files=[ "res://.import/cymbal_crash.ogg-b7af3ab60d887309bd76d57e8d2574f2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
