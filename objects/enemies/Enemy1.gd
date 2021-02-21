@@ -14,7 +14,7 @@ func _ready() -> void:
 	max_health = 10
 	health = 10
 	attack_damage = 1
-	set_weapon("slap")
+	set_weapon(["slap", "slap", "shortsword"][randi() % 3])
 
 
 
