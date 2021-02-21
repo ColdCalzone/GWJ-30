@@ -12,6 +12,7 @@ onready var timer := $Timer
 onready var cooldown_timer := $Cooldown
 onready var reset_timer := $ResetTimer
 
+var weapon_name : String
 var weapon_data : Dictionary
 var handler # I HATE DYNAMIC BUT I HATE DUMB ERRORS MORE
 
