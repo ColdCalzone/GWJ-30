@@ -73,6 +73,11 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://objects/Weapon.gd"
+}, {
+"base": "Node2D",
+"class": "WeaponPickup",
+"language": "GDScript",
+"path": "res://objects/WeaponPickup.gd"
 } ]
 _global_script_class_icons={
 "ArrowAttackParams": "",
@@ -87,7 +92,8 @@ _global_script_class_icons={
 "SpawnerParticleParams": "",
 "SwingAttackParams": "",
 "WarningTile": "",
-"Weapon": ""
+"Weapon": "",
+"WeaponPickup": ""
 }
 
 [application]
