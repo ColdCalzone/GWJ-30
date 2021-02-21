@@ -99,5 +99,6 @@ func set_weapon(weapon_name : String) -> void:
 	
 	weapon = WeaponManager.get_weapon(weapon_name)
 	weapon.handler = self
+	weapon.scale = Vector2(2, 2)
 	
 	add_child(weapon)
