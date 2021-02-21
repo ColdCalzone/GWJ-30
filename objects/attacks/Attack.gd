@@ -21,7 +21,6 @@ func damage(victim : Entity) -> void:
 		var weapon := attacker.weapon
 		
 		if attacker.is_in_group("player") && on_beat && !weapon.timer.time_left:
-			print("lmao")
 			final_damage += weapon.weapon_data.get("damage")
 		elif attacker.is_in_group("enemy"):
 			final_damage += weapon.weapon_data.get("damage")
