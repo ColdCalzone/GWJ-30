@@ -10,6 +10,7 @@ extents = Vector2( 32, 32 )
 script = ExtResource( 1 )
 max_health = 4
 move_speed = 200
+player_distance = 80.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

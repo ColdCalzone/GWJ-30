@@ -37,23 +37,26 @@ func steal_treasures() -> void:
 
 func get_near_player() -> void:
 	if target == null:
-		pathfind_entity(player)
+		if distance_to(player) <= player_distance:
+			clear_path()
+		else:
+			pathfind_entity(player)
 
 
 
 func attack_near_players() -> void:
 	for p in get_tree().get_nodes_in_group("player"):
-		if distance_to(p) < player_distance:
+		if distance_to(p) <= player_distance:
 			attempt_attack(p)
 			break
 
 
 
 func attempt_attack(target_player : Entity) -> void:
-	if !attack_timer:
+	if !attack_timer.time_left:
 		attack_timer.start()
 		
-		var angle := rad2deg(get_angle_to(get_global_mouse_position()))
+		var angle := rad2deg(get_angle_to(target_player.global_position))
 		var offset := Vector2(cos(deg2rad(angle)), sin(deg2rad(angle))) * 40
 		weapon.use(SwingAttackParams.new(global_position + offset, angle))
 
