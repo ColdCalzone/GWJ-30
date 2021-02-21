@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://hud/WaveQuotaDisplay.gd" type="Script" id=1]
+[ext_resource path="res://assets/Papyrus.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="WaveQuotaDisplay" type="Control"]
+anchor_left = 0.75
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.175
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wave" type="Label" parent="VBoxContainer"]
+margin_right = 245.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 1 )
+align = 2
+
+[node name="Quota" type="Label" parent="VBoxContainer"]
+margin_top = 55.0
+margin_right = 245.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 2 )
+align = 2

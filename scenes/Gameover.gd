@@ -5,6 +5,8 @@ extends Control
 onready var waves_label := $VBoxContainer/Stats/Waves
 onready var kills_label := $VBoxContainer/Stats/Kills
 
+const TITLE_SCREEN := preload("res://scenes/Titlescreen.tscn")
+
 
 
 func _ready() -> void:
@@ -13,4 +15,4 @@ func _ready() -> void:
 
 
 func _on_Button_pressed() -> void:
-	TransitionManager.transition(load("res://scenes/Game.tscn"))
+	TransitionManager.transition(TITLE_SCREEN)

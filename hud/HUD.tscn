@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://hud/Heartbeat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hud/HealthDisplay.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://hud/PulseVignette.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/PauseMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://hud/AdrenalineMeter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://hud/WaveQuotaDisplay.tscn" type="PackedScene" id=7]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -19,3 +20,5 @@ script = ExtResource( 3 )
 [node name="PauseMenu" parent="." instance=ExtResource( 5 )]
 
 [node name="AdrenalineMeter" parent="." instance=ExtResource( 6 )]
+
+[node name="WaveQuotaDisplay" parent="." instance=ExtResource( 7 )]
