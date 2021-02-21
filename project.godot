@@ -105,6 +105,7 @@ AudioManager="*res://singletons/AudioManager.tscn"
 Map="*res://singletons/Map.tscn"
 Heartbeat="*res://singletons/Heartbeat.gd"
 WeaponManager="*res://singletons/WeaponManager.gd"
+DamageNotifierManager="*res://singletons/DamageNotifierManager.gd"
 
 [display]
 
