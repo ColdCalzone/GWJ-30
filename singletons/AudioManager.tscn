@@ -1,13 +1,16 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://singletons/AudioManager.gd" type="Script" id=1]
-[ext_resource path="res://sfx/swish-1.wav" type="AudioStream" id=2]
-[ext_resource path="res://sfx/ambience/birdchirpingplaceholder.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/sfx/swish-1.wav" type="AudioStream" id=2]
+[ext_resource path="res://scenes/sfx/ambience/birdchirpingplaceholder.wav" type="AudioStream" id=3]
 [ext_resource path="res://music/placeholder_music.wav" type="AudioStream" id=4]
-[ext_resource path="res://sfx/warn_sound.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scenes/sfx/warn_sound.ogg" type="AudioStream" id=5]
 [ext_resource path="res://music/Rocken.ogg" type="AudioStream" id=6]
-[ext_resource path="res://sfx/cymbal_crash.ogg" type="AudioStream" id=7]
-[ext_resource path="res://sfx/heartbeat.ogg" type="AudioStream" id=8]
+[ext_resource path="res://scenes/sfx/cymbal_crash.ogg" type="AudioStream" id=7]
+[ext_resource path="res://scenes/sfx/heartbeat.ogg" type="AudioStream" id=8]
+
+
+
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )

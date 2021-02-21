@@ -4,7 +4,7 @@ extends Control
 
 onready var hud := get_parent()
 
-const MENU := preload("res://objects/attacks/Arrow.tscn")
+const MENU := preload("res://scenes/Titlescreen.tscn")
 
 var is_paused := false
 
@@ -41,4 +41,5 @@ func _on_ContinueButton_pressed() -> void:
 
 
 func _on_EndGameButton_pressed() -> void:
+	set_is_paused(false)
 	TransitionManager.transition(MENU)

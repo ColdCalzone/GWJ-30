@@ -117,6 +117,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GWJ 30"
+run/main_scene="res://scenes/Titlescreen.tscn"
 boot_splash/image="res://wallpaper.png"
 boot_splash/bg_color=Color( 0.0588235, 0.121569, 0.188235, 1 )
 config/icon="res://icon.png"
