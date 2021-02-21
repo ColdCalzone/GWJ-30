@@ -5,6 +5,7 @@ class_name WeaponPickup
 
 onready var sprite := $Sprite
 onready var cooldown := $CooldownTimer
+onready var area2d := $Area2D
 
 var weapon_name : String
 
