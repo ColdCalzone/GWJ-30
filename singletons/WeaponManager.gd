@@ -12,8 +12,16 @@ func get_weapon(weapon_name : String) -> Weapon:
 	var weapon_instance : Weapon = WEAPON_PACKED.instance()
 	
 	weapon_instance.weapon_data = weapon_data
+	weapon_instance.weapon_name = weapon_name
 	
 	return weapon_instance
+
+
+
+func get_weapon_data(weapon_name : String) -> Dictionary:
+	var weapon_data : Dictionary = load_file(WEAPONS_DATA).get(weapon_name)
+	
+	return weapon_data
 
 
 
