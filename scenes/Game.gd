@@ -27,7 +27,7 @@ const SUPERPOWERS := ["health", "current_adren"]
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
-	0: ENEMY4_PACKED,
+	0: ENEMY1_PACKED,
 	5: ENEMY2_PACKED,
 	10: ENEMY3_PACKED,
 	15: ENEMY4_PACKED
