@@ -24,7 +24,6 @@ func update_texture() -> void:
 func _on_Area2D_body_entered(body : PhysicsBody2D) -> void:
 	if body is Entity && !body.dead && !cooldown.time_left:
 		body.drop_chance = 1.00
-		print(weapon_name)
 		body.set_weapon(weapon_name)
 		queue_free()
 
