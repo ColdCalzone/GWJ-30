@@ -32,6 +32,7 @@ func load_file(file_to_read : String) -> Dictionary:
 	var file_string_content := file.get_as_text()
 	var content : Dictionary = JSON.parse(file_string_content).result
 	
+	file.close()
 	return content
 
 
