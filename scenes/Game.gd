@@ -11,6 +11,7 @@ var spawners := []
 var wave_kills := 0
 var total_kills := 0
 var wave_enemies := 0
+var enemy_pool := []
 
 const ENEMY1_PACKED := preload("res://objects/enemies/Enemy1.tscn")
 const ENEMY2_PACKED := preload("res://objects/enemies/Enemy2.tscn")
@@ -26,10 +27,10 @@ const SUPERPOWERS := ["health", "current_adren"]
 const ENTITY_SIZE := Vector2(64, 64)
 const MAP_SIZE := Vector2(35, 20)
 const ENEMY_WAVES := {
-	[ENEMY1_PACKED]: 0,
-	[ENEMY2_PACKED]: 2,
-	[ENEMY3_PACKED]: 3,
-	[ENEMY4_PACKED]: 4
+	0: ENEMY4_PACKED,
+	5: ENEMY2_PACKED,
+	10: ENEMY3_PACKED,
+	15: ENEMY4_PACKED
 }
 
 
@@ -59,7 +60,6 @@ func new_wave() -> void:
 	spawn_superpower()
 	get_player().add_adrenaline(randi() % 15)
 	
-	
 	# Reset stuff
 	wave_enemies = 0
 	wave_kills = 0
@@ -77,6 +77,12 @@ func new_wave() -> void:
 	wave_quota = round(wave * quota_multiplier)
 	GlobalData.waves_survived += 1
 	GlobalData.wave_quota = wave_quota
+	
+	# Update enemy pool
+	for check_wave in ENEMY_WAVES:
+		if wave >= check_wave:
+			if not ENEMY_WAVES.get(check_wave) in enemy_pool:
+				enemy_pool.append(ENEMY_WAVES.get(check_wave))
 	
 	# Add new spawners
 	for i in int(rand_range(2, 5)):
@@ -148,9 +154,7 @@ func add_spawner(set_position : Vector2) -> void:
 	spawner_instance.position = set_position
 	spawner_instance.time_min = 2.0
 	spawner_instance.time_max = 4.0
-	while true:
-		spawner_instance.entities = ENEMY_WAVES.keys()[randi() % len(ENEMY_WAVES)]
-		if wave >= ENEMY_WAVES.get(spawner_instance.entities): break
+	spawner_instance.entities = enemy_pool
 	
 	add_child(spawner_instance)
 	spawners.append(spawner_instance)
